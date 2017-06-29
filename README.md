@@ -1,5 +1,9 @@
 ![nginx-php](http://apmblog.dynatrace.com/wp-content/uploads/2014/10/PHP-on-Nginx.jpg)
 
+[![Build Status](https://drone.xataz.net/api/badges/xataz/docker-nginx-php/status.svg)](https://drone.xataz.net/xataz/docker-nginx-php)
+[![](https://images.microbadger.com/badges/image/xataz/nginx-php.svg)](https://microbadger.com/images/xataz/nginx-php "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/xataz/nginx-php.svg)](https://microbadger.com/images/xataz/nginx-php "Get your own version badge on microbadger.com")
+
 > This image is build and push with [drone.io](https://github.com/drone/drone), a circle-ci like self-hosted.
 > If you don't trust, you can build yourself.
 
