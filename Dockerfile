@@ -88,7 +88,7 @@ LABEL description="nginx based on alpine" \
       nginx_version="${NGINX_VER}" \
       php_version="${PHP_VER}" \
       maintainer="xataz <https://github.com/xataz>" \
-      build_ver="2017090801"
+      build_ver="2017100501"
 
 COPY rootfs /
 
