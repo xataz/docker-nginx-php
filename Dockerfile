@@ -80,44 +80,65 @@ ARG PHP_EXT_LIST="gd \
                 pgsql \
                 ftp \
                 exif \
-                gmp"
+                gmp \
+                mbstring"
 ARG CUSTOM_BUILD_PKGS="freetype-dev \
                         openldap-dev \
-                        gmp-dev"
+                        gmp-dev \
+                        sqlite-dev \
+                        postgresql-dev \
+                        libmcrypt-dev \
+                        bzip2-dev \
+                        icu-dev \
+                        libzip-dev \
+                        libc-dev"
 ARG CUSTOM_PKGS="freetype \
                 openldap \
-                gmp"
+                gmp \
+                libmcrypt \
+                libpng \
+                libjpeg-turbo \
+                freetype \
+                libwebp \
+                libxpm \
+                libzip \
+                sqlite-libs \
+                libpq \
+                libcurl \
+                libbz2 \
+                icu-libs \
+                libgcc \
+                libstdc++ \
+                libldap"
 
 ENV UID=991 \
     GID=991
 
-LABEL description="nginx based on alpine" \
+LABEL description="nginx and php7 based on alpine" \
       tags="latest" \
       nginx_version="${NGINX_VER}" \
       php_version="${PHP_VER}" \
       maintainer="xataz <https://github.com/xataz>" \
-      build_ver="2017102401"
+      build_ver="2017102501"
 
 COPY rootfs /
 
-RUN export BUILD_DEPS="build-base \
-                    pcre-dev \
-                    zlib-dev \
+RUN export BUILD_DEPS="build-base \                    
                     wget \
                     gnupg \
                     autoconf \
+                    libressl-dev \
                     g++ \
-                    gcc \
-                    libc-dev \
-                    make \
-                    pkgconf \
+                    pcre-dev \
                     curl-dev \
                     libedit-dev \
-                    libxml2-dev \
-                    libressl-dev \
-                    sqlite-dev \
+                    gcc \
+                    zlib-dev \
+                    make \
+                    pkgconf \
                     wget \
                     ca-certificates \
+                    libxml2-dev \
                     ${CUSTOM_BUILD_PKGS}" \
     && NB_CORES=${BUILD_CORES-$(grep -c "processor" /proc/cpuinfo)} \
     && apk add -U ${BUILD_DEPS} \
@@ -162,7 +183,7 @@ RUN export BUILD_DEPS="build-base \
     && { find /usr/local/bin /usr/local/sbin -type f -perm +0111 -exec strip --strip-all '{}' + || true; } \
     && make clean \
     && chmod u+x /usr/local/bin/* /etc/s6.d/*/* \
-    && docker-php-ext-install ${PHP_EXT_LIST} \
+    && if [ "${PHP_EXT_LIST}" != "" ]; then docker-php-ext-install ${PHP_EXT_LIST}; fi \
     && apk del ${BUILD_DEPS} \
     && rm -rf /tmp/* /var/cache/apk/* /usr/src/*
 

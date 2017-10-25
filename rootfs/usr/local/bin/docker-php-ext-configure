@@ -15,5 +15,8 @@ shift
 
 set -x
 cd "$extDir"
+if [ -e config0.m4 ]; then
+    mv config0.m4 config.m4
+fi
 phpize
 ./configure "$@"
