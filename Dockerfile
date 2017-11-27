@@ -2,7 +2,7 @@ FROM xataz/alpine:3.6
 
 ARG BUILD_CORES
 
-ARG NGINX_VER=1.13.6
+ARG NGINX_VER=1.13.7
 ARG NGINX_CONF="--prefix=/nginx \
                 --sbin-path=/usr/local/sbin/nginx \
                 --http-log-path=/nginx/logs/nginx_access.log \
@@ -115,11 +115,11 @@ ENV UID=991 \
     GID=991
 
 LABEL description="nginx and php7 based on alpine" \
-      tags="latest" \
+      tags="latest mainline 1.13.7 1.13" \
       nginx_version="${NGINX_VER}" \
       php_version="${PHP_VER}" \
       maintainer="xataz <https://github.com/xataz>" \
-      build_ver="2017102501"
+      build_ver="2017112701"
 
 COPY rootfs /
 
