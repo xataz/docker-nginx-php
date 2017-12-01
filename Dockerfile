@@ -1,4 +1,4 @@
-FROM xataz/alpine:3.6
+FROM xataz/alpine:3.7
 
 ARG BUILD_CORES
 
@@ -119,7 +119,7 @@ LABEL description="nginx and php7 based on alpine" \
       nginx_version="${NGINX_VER}" \
       php_version="${PHP_VER}" \
       maintainer="xataz <https://github.com/xataz>" \
-      build_ver="2017112701"
+      build_ver="2017120201"
 
 COPY rootfs /
 
