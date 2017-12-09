@@ -51,8 +51,8 @@ ARG PHP_CONF="--enable-fpm \
                 --with-libedit \
                 --with-openssl \
                 --with-zlib"
-ARG PHP_GPG="A917B1ECDA84AEC2B568FED6F50ABC807BD5DCD0 \
-             528995BFEDFBA7191D46839EF9BA0ADA31CBD89E"
+ARG PHP_GPG="1729F83938DA44E27BA0F4D3DBDB397470D12172 \
+             B1B44D8F021E4E2D6021E995DC9FF8D3EE5AF27F"
 
 ARG PHP_EXT_LIST="gd \
                 mysqli \
@@ -73,7 +73,6 @@ ARG PHP_EXT_LIST="gd \
                 fileinfo \
                 bz2 \
                 intl \
-                mcrypt \
                 openssl \
                 ldap \
                 simplexml \
@@ -81,7 +80,7 @@ ARG PHP_EXT_LIST="gd \
                 ftp \
                 exif \
                 gmp \
-                mbstring"
+                opcache"
 ARG CUSTOM_BUILD_PKGS="freetype-dev \
                         openldap-dev \
                         gmp-dev \
@@ -119,7 +118,7 @@ LABEL description="nginx and php7 based on alpine" \
       nginx_version="${NGINX_VER}" \
       php_version="${PHP_VER}" \
       maintainer="xataz <https://github.com/xataz>" \
-      build_ver="2017120901"
+      build_ver="2017120902"
 
 COPY rootfs /
 
