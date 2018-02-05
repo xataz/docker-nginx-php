@@ -2,7 +2,7 @@ FROM xataz/alpine:3.7
 
 ARG BUILD_CORES
 
-ARG NGINX_VER=1.13.7
+ARG NGINX_VER=1.13.8
 ARG NGINX_CONF="--prefix=/nginx \
                 --sbin-path=/usr/local/sbin/nginx \
                 --http-log-path=/nginx/logs/nginx_access.log \
@@ -37,7 +37,7 @@ ARG NGINX_GPG="573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \
                B0F4253373F8F6F510D42178520A9993A1C052F8 \
                7338973069ED3F443F4D37DFA64FD5B17ADB39A8"
 
-ARG PHP_VER=7.2.0
+ARG PHP_VER=7.2.2
 ARG PHP_MIRROR=http://fr2.php.net
 ARG PHP_CONF="--enable-fpm \
                 --with-fpm-user=web \
@@ -114,11 +114,11 @@ ENV UID=991 \
     GID=991
 
 LABEL description="nginx and php7 based on alpine" \
-      tags="latest mainline 1.13.7 1.13" \
+      tags="latest" \
       nginx_version="${NGINX_VER}" \
       php_version="${PHP_VER}" \
       maintainer="xataz <https://github.com/xataz>" \
-      build_ver="2017120902"
+      build_ver="2018020501"
 
 COPY rootfs /
 
