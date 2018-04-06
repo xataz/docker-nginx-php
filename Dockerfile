@@ -118,7 +118,7 @@ LABEL description="nginx and php7 based on alpine" \
       nginx_version="${NGINX_VER}" \
       php_version="${PHP_VER}" \
       maintainer="xataz <https://github.com/xataz>" \
-      build_ver="201804040600"
+      build_ver="201804060431"
 
 COPY rootfs /
 
