@@ -37,7 +37,7 @@ ARG NGINX_GPG="573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \
                B0F4253373F8F6F510D42178520A9993A1C052F8 \
                7338973069ED3F443F4D37DFA64FD5B17ADB39A8"
 
-ARG PHP_VER=7.2.5
+ARG PHP_VER=7.2.6
 ARG PHP_MIRROR=http://fr2.php.net
 ARG PHP_CONF="--enable-fpm \
                 --with-fpm-user=web \
@@ -118,7 +118,7 @@ LABEL description="nginx and php7 based on alpine" \
       nginx_version="${NGINX_VER}" \
       php_version="${PHP_VER}" \
       maintainer="xataz <https://github.com/xataz>" \
-      build_ver="201804270600"
+      build_ver="201805250600"
 
 COPY rootfs /
 
